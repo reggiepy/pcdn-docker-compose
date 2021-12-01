@@ -1,1 +1,23 @@
+version: 3.5
 
+services:
+  wxedge:
+    image: onething1/wxedge
+    volume:
+      - /media/data/wxedge_storage:/storage:rw
+    tmpfs:
+      - /tmp
+      - /run
+    privileged: true
+    restart: always
+    network: host
+
+  ttnode:
+    image: ericwang2006/ttnode
+    name: ttnode
+    volume:
+      - /media/data/ttnode:/mnts
+    hostname: ttnode
+    network: host
+    privileged: true
+    restart: always
